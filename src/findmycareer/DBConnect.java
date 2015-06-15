@@ -14,7 +14,7 @@ import java.sql.Types;
 
 /**
  *
- * @author marcel
+ * @author 5100006815
  */
 public class DBConnect {
     private Connection con;

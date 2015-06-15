@@ -19,6 +19,7 @@ public class SignUpPage extends javax.swing.JFrame {
      */
     public SignUpPage() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(36, 107, 178));
     }
     
 
@@ -132,6 +133,7 @@ public class SignUpPage extends javax.swing.JFrame {
         getContentPane().add(jLabel2, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(230, 230, 230));
         jLabel5.setText("FindMyCareer");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -178,10 +180,11 @@ public class SignUpPage extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         getContentPane().add(jLabel6, gridBagConstraints);
 
-        txtPassComp.setBackground(new java.awt.Color(238, 238, 238));
+        txtPassComp.setBackground(new java.awt.Color(36, 107, 178));
         txtPassComp.setColumns(20);
+        txtPassComp.setForeground(new java.awt.Color(230, 230, 230));
         txtPassComp.setRows(5);
-        txtPassComp.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtPassComp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 107, 178)));
         txtPassComp.setFocusable(false);
         jScrollPane1.setViewportView(txtPassComp);
 
