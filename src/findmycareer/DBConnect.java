@@ -61,7 +61,7 @@ public class DBConnect {
            preState.setString(4,fName);
            preState.setString(5,lName);
            preState.execute();
-           System.out.println("Playa added!");
+           System.out.println("Nigga added!");
         }catch(Exception e){
             System.out.println("You done goofed"+e.getMessage());
         }
