@@ -48,12 +48,14 @@ public class MainPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(425, 250));
+        setPreferredSize(new java.awt.Dimension(475, 250));
         setResizable(false);
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0};
+        layout.columnWidths = new int[] {0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0};
         layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
@@ -89,12 +91,14 @@ public class MainPage extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(cbxCategory, gridBagConstraints);
 
+        btnSearch.setBackground(new java.awt.Color(153, 102, 255));
         btnSearch.setText("Search");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 12;
         getContentPane().add(btnSearch, gridBagConstraints);
 
+        btnExit.setBackground(new java.awt.Color(36, 107, 178));
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,9 +106,8 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 0;
         getContentPane().add(btnExit, gridBagConstraints);
 
         cbxIndustry.setBackground(new java.awt.Color(51, 204, 255));
@@ -169,6 +172,19 @@ public class MainPage extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         getContentPane().add(jLabel4, gridBagConstraints);
+
+        jButton1.setBackground(new java.awt.Color(36, 107, 178));
+        jButton1.setText("Log Out");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 4;
+        getContentPane().add(jButton1, gridBagConstraints);
+
+        jButton2.setText("Edit Profile");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 8;
+        getContentPane().add(jButton2, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -241,6 +257,8 @@ public class MainPage extends javax.swing.JFrame {
     public static javax.swing.JComboBox cbxCategory;
     public static javax.swing.JComboBox cbxIndustry;
     public static javax.swing.JComboBox cbxPathway;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

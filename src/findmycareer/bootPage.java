@@ -73,6 +73,7 @@ public class bootPage extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(btnSignUp, gridBagConstraints);
 
+        btnLogIn.setBackground(new java.awt.Color(204, 51, 255));
         btnLogIn.setText("Log in");
         btnLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
