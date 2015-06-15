@@ -8,14 +8,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
 
 /**
  *
- * @author marcel
+ * @author 5100006815
  */
 public class DBConnect {
     private Connection con;

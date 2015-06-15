@@ -19,6 +19,7 @@ public class SignUpPage extends javax.swing.JFrame {
      */
     public SignUpPage() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(36, 107, 178));
     }
     
 
@@ -45,7 +46,6 @@ public class SignUpPage extends javax.swing.JFrame {
         txtLastName = new javax.swing.JTextField();
         txtPasswordTwo = new javax.swing.JPasswordField();
         txtEmail = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
         txtFirstName = new javax.swing.JTextField();
         txtPasswordOne = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
@@ -133,6 +133,7 @@ public class SignUpPage extends javax.swing.JFrame {
         getContentPane().add(jLabel2, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(230, 230, 230));
         jLabel5.setText("FindMyCareer");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -162,11 +163,6 @@ public class SignUpPage extends javax.swing.JFrame {
         getContentPane().add(txtEmail, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        getContentPane().add(jTextField6, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         getContentPane().add(txtFirstName, gridBagConstraints);
@@ -184,10 +180,11 @@ public class SignUpPage extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         getContentPane().add(jLabel6, gridBagConstraints);
 
-        txtPassComp.setBackground(new java.awt.Color(238, 238, 238));
+        txtPassComp.setBackground(new java.awt.Color(36, 107, 178));
         txtPassComp.setColumns(20);
+        txtPassComp.setForeground(new java.awt.Color(230, 230, 230));
         txtPassComp.setRows(5);
-        txtPassComp.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtPassComp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 107, 178)));
         txtPassComp.setFocusable(false);
         jScrollPane1.setViewportView(txtPassComp);
 
@@ -219,7 +216,7 @@ public class SignUpPage extends javax.swing.JFrame {
 
     private void txtPasswordTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordTwoActionPerformed
         // TODO add your handling code here:
-        
+        isSame = false;
         if(txtPasswordOne.getText().equals(txtPasswordTwo.getText())){
             isSame = true;
         }
@@ -277,7 +274,6 @@ public class SignUpPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lNameLabel;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
