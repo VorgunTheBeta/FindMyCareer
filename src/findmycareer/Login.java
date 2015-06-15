@@ -11,13 +11,15 @@ package findmycareer;
  * @author 7107723813
  */
 public class Login extends javax.swing.JFrame {
-
+    public String password;
+    public static String email;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(36, 107, 178));
+        
     }
 
     /**
@@ -122,9 +124,10 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        String password = txtPassword.getText();
+        email = txtEmail.getText();
+        password = txtPassword.getText();
         DBConnect db = new DBConnect();
-        if(db.login(txtEmail.getText(),password)==true){
+        if(db.login(email,password)==true){
             System.out.println("Congratulations, it didnt break");
             FindMyCareer.mainPageShow();
         }

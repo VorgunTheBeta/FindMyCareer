@@ -19,6 +19,7 @@ public class FindMyCareer {
     public static SignUpPage sUP;
     public static Login lgn;
     public static MainPage mPG;
+    public static ProfileEdit pfEdt;
     //</editor-fold>
     /**
      * @param args the command line arguments
@@ -83,6 +84,13 @@ public class FindMyCareer {
         if(st.equals("Login")){
             lgn.getContentPane().removeAll();
         }
+    }
+    public static void ProfileEdit(){
+        if(pfEdt==null){
+            pfEdt = new ProfileEdit();
+        }
+        pfEdt.setVisible(true);
+        mPG.dispose();
     }
     //</editor-fold>
     

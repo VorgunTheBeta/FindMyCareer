@@ -43,6 +43,8 @@ public class DBConnect {
             if(check == false){
                 System.out.println("User Does Not Exist");
             }
+            String SQL ="UPDATE user SET loggedIn = '1' WHERE email = '"+user+"'";
+            st.execute(SQL);
         }catch(Exception e){
             System.out.println("ERROR: "+e.getMessage());
         }
@@ -117,5 +119,24 @@ public class DBConnect {
             System.out.println("Nope: "+e.getMessage());
         }
         return rs.toString();
+    }
+    public void profileItems(String user){
+        try{
+            st = con.createStatement();
+            String sql = "SELECT * FROM user WHERE email = '"+user+"'";
+            rs = st.executeQuery(sql);
+            while(rs.next()){
+            ProfileEdit.txtEmail.setText(rs.getString(2));
+            ProfileEdit.txtPasswordOne.setText(rs.getString(3));
+            ProfileEdit.txtPasswordTwo.setText(rs.getString(3));
+            ProfileEdit.txtFname.setText(rs.getString(6));
+            ProfileEdit.txtLname.setText(rs.getString(7));
+            ProfileEdit.txtDoB.setValue(rs.getDate(9));
+            
+
+            }
+        }catch(Exception e){
+            System.out.println("ERROR: "+e.getMessage());
+        }
     }
 }
