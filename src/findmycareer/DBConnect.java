@@ -30,6 +30,7 @@ public class DBConnect {
         }catch(ClassNotFoundException | SQLException e){
             System.out.println("ERROR: "+e.getMessage());
         }
+        
     }
     public boolean login(String user, String password){
         boolean check = false;
@@ -43,10 +44,14 @@ public class DBConnect {
             if(check == false){
                 System.out.println("User Does Not Exist");
             }
+             String SQL = "UPDATE user SET loggedIn = '1' WHERE email = '"+user+"'";
+             st.execute(SQL);
+             
         }catch(Exception e){
             System.out.println("ERROR: "+e.getMessage());
         }
         return check;
+   
     }
     public void signUp(String user, String password, int accountlvl, String fName, String lName){
         accountlvl = 1;
@@ -118,4 +123,17 @@ public class DBConnect {
         }
         return rs.toString();
     }
+     public void logout(String user){
+        try{
+            st = con.createStatement();
+             String SQL = "UPDATE user SET loggedin = '0' WHERE email = '"+user+"'";
+             st.execute(SQL);
+             
+        }catch(Exception e){
+            System.out.println("ERROR: "+e.getMessage());
+        }
+   
+    }
 }
+    
+

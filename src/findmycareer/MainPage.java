@@ -14,7 +14,7 @@ package findmycareer;
  * @author 7107723813
  */
 public class MainPage extends javax.swing.JFrame {
-
+    public DBConnect db = new DBConnect();
     /**
      * Creates new form MainPage
      */
@@ -23,7 +23,7 @@ public class MainPage extends javax.swing.JFrame {
         cbxIndustry.removeAllItems();
         cbxCategory.removeAllItems();
         cbxPathway.removeAllItems();
-        DBConnect db = new DBConnect();
+       
         db.industrySearch();
         getContentPane().setBackground(new java.awt.Color(36, 107, 178));
     }
@@ -179,6 +179,7 @@ public class MainPage extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
+        db.logout(Login.email);
         dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
