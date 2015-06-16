@@ -15,7 +15,7 @@ import java.sql.Date;
 public class SignUpPage extends javax.swing.JFrame {
     public boolean isSame = false;
    
-   
+    //test
     /**
      * Creates new form tabs
      */
