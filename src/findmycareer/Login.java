@@ -129,7 +129,7 @@ public class Login extends javax.swing.JFrame {
         DBConnect db = new DBConnect();
         if(db.login(email,password)==true){
             System.out.println("Congratulations, it didnt break");
-            FindMyCareer.mainPageShow();
+            FindMyCareer.mainPageShow("login");
         }
         
     }//GEN-LAST:event_btnLoginActionPerformed

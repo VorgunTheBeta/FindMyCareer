@@ -130,6 +130,7 @@ public class DBConnect {
             String sql = "SELECT * FROM user WHERE email = '"+user+"'";
             rs = st.executeQuery(sql);
             while(rs.next()){
+            ProfileEdit.txtUserID.setText(rs.getString(1));
             ProfileEdit.txtEmail.setText(rs.getString(2));
             ProfileEdit.txtPasswordOne.setText(rs.getString(3));
             ProfileEdit.txtPasswordTwo.setText(rs.getString(3));
@@ -141,6 +142,18 @@ public class DBConnect {
             }
         }catch(Exception e){
             System.out.println("ERROR: "+e.getMessage());
+        }
+    }
+    public void editProfile(String userID, String user, String password, String fName, String lName, String Dob){
+        Date dob = Date.valueOf(Dob);
+        try{
+           st = con.createStatement();
+           String editStatement = "UPDATE user SET email =  '"+user+"', password = '"+password+"', fName = '"+fName+"', lName = '"
+                   +lName+"', DoB = '"+dob+"' WHERE userID = '"+userID+"'";
+          st.execute(editStatement);
+           System.out.println("Profile changed");
+        }catch(Exception e){
+            System.out.println("You done goofed"+e.getMessage());
         }
     }
 }

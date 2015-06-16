@@ -57,12 +57,17 @@ public class FindMyCareer {
             sUS.dispose();
         }            
     }
-    public static void mainPageShow(){
+    public static void mainPageShow(String st){
         if(mPG == null){
             mPG = new MainPage();
         }
         mPG.setVisible(true);
-        lgn.dispose();
+        if(st.equals("login")){
+        lgn.dispose();    
+        }
+        if(st.equals("edit")){
+            pfEdt.dispose();
+        }
     }
     public static void bootPageShow(String st){
         if(bP == null){
