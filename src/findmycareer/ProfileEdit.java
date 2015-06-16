@@ -6,19 +6,22 @@
 
 package findmycareer;
 
+
+
 /**
  *
  * @author 5100006815
  */
 public class ProfileEdit extends javax.swing.JFrame {
     public DBConnect db = new DBConnect();
+    
     /**
      * Creates new form ProfileEdit
      */
     public ProfileEdit() {
         initComponents();
         db.profileItems(Login.email);
-
+        
     }
 
     /**

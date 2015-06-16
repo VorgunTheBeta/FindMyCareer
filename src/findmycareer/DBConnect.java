@@ -5,12 +5,12 @@
  */
 package findmycareer;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Types;
 
 /**
  *
@@ -50,8 +50,9 @@ public class DBConnect {
         }
         return check;
     }
-    public void signUp(String user, String password, int accountlvl, String fName, String lName){
+    public void signUp(String user, String password, int accountlvl, String fName, String lName, String Dob){
         accountlvl = 1;
+        Date dob = Date.valueOf(Dob);
         try{
            
            String insertStatement = "INSERT INTO user(email, password, accountLevel, fName, lName) "
@@ -62,6 +63,7 @@ public class DBConnect {
            preState.setInt(3, accountlvl);
            preState.setString(4,fName);
            preState.setString(5,lName);
+           preState.setDate(6,dob);
            preState.execute();
            System.out.println("Playa added!");
         }catch(Exception e){
