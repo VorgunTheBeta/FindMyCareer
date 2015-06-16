@@ -51,7 +51,7 @@ public class SignUpPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtPassComp = new javax.swing.JTextArea();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        txtDoB = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
@@ -196,13 +196,14 @@ public class SignUpPage extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 7;
         getContentPane().add(jScrollPane1, gridBagConstraints);
 
-        jFormattedTextField1.setText("jFormattedTextField1");
+        txtDoB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 14;
-        getContentPane().add(jFormattedTextField1, gridBagConstraints);
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(txtDoB, gridBagConstraints);
 
-        jLabel7.setText("jLabel7");
+        jLabel7.setText("Date Of Birth");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 14;
@@ -216,7 +217,7 @@ public class SignUpPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!txtFirstName.equals("")&&!txtLastName.equals("")&&!txtEmail.equals("")&&!txtPasswordOne.equals("")&&!txtPasswordTwo.equals("")&&isSame){
             DBConnect db = new DBConnect();
-            db.signUp(txtEmail.getText(), txtPasswordOne.getText(), WIDTH, txtFirstName.getText(), txtLastName.getText());
+            db.signUp(txtEmail.getText(), txtPasswordOne.getText(), WIDTH, txtFirstName.getText(), txtLastName.getText(), txtDoB.getText());
             FindMyCareer.signUpSubmit();
         }
        
@@ -282,7 +283,6 @@ public class SignUpPage extends javax.swing.JFrame {
     private javax.swing.JButton btnSignUp;
     private javax.swing.JButton jButton2;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -292,6 +292,7 @@ public class SignUpPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lNameLabel;
+    private javax.swing.JFormattedTextField txtDoB;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
