@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package findmycareer;
 
 /**
@@ -17,6 +16,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
         getContentPane().setBackground(new java.awt.Color(36, 107, 178));
     }
 
@@ -124,11 +124,11 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String password = txtPassword.getText();
         DBConnect db = new DBConnect();
-        if(db.login(txtEmail.getText(),password)==true){
+        if (db.login(txtEmail.getText(), password) == true) {
             System.out.println("Congratulations, it didnt break");
             FindMyCareer.mainPageShow();
         }
-        
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

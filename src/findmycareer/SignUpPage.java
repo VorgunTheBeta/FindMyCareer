@@ -12,16 +12,17 @@ package findmycareer;
  */
 public class SignUpPage extends javax.swing.JFrame {
     public boolean isSame = false;
-   
+
     
     /**
      * Creates new form tabs
      */
     public SignUpPage() {
         initComponents();
+                this.setLocationRelativeTo(null);
         getContentPane().setBackground(new java.awt.Color(36, 107, 178));
     }
-    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -204,7 +205,7 @@ public class SignUpPage extends javax.swing.JFrame {
             db.signUp(txtEmail.getText(), txtPasswordOne.getText(), WIDTH, txtFirstName.getText(), txtLastName.getText());
             FindMyCareer.signUpSubmit();
         }
-       
+
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -221,7 +222,7 @@ public class SignUpPage extends javax.swing.JFrame {
             isSame = true;
         }
         if(isSame){
-        this.txtPassComp.setText("Passwords Match");
+            this.txtPassComp.setText("Passwords Match");
         }else{
             this.txtPassComp.setText("Passwords do not match");
         }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package findmycareer;
+
 /**
  *
  * @author 1106024914
@@ -15,6 +16,7 @@ public class SignUpSuccess extends javax.swing.JFrame {
      */
     public SignUpSuccess() {
         initComponents();
+        this.setLocationRelativeTo(null);
         getContentPane().setBackground(new java.awt.Color(36, 107, 178));
     }
 

@@ -3,11 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package findmycareer;
-
-
-
 
 /**
  *
@@ -20,6 +16,7 @@ public class MainPage extends javax.swing.JFrame {
      */
     public MainPage() {
         initComponents();
+        this.setLocationRelativeTo(null);
         cbxIndustry.removeAllItems();
         cbxCategory.removeAllItems();
         cbxPathway.removeAllItems();
@@ -188,7 +185,7 @@ public class MainPage extends javax.swing.JFrame {
         int id = cbxIndustry.getSelectedIndex();
         DBConnect db = new DBConnect();
         db.categorySearch(id);
-        
+
     }//GEN-LAST:event_cbxIndustryActionPerformed
 
     private void cbxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCategoryActionPerformed
@@ -197,7 +194,7 @@ public class MainPage extends javax.swing.JFrame {
         int catid = cbxCategory.getSelectedIndex();
         int indusid = cbxIndustry.getSelectedIndex();
         DBConnect db = new DBConnect();
-        db.pathwaySearch(catid,indusid);
+        db.pathwaySearch(catid, indusid);
     }//GEN-LAST:event_cbxCategoryActionPerformed
 
     /**
