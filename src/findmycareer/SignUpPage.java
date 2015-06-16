@@ -19,7 +19,7 @@ public class SignUpPage extends javax.swing.JFrame {
      */
     public SignUpPage() {
         initComponents();
-        getContentPane().setBackground(new java.awt.Color(36, 107, 178));
+        getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
     
 
@@ -196,7 +196,7 @@ public class SignUpPage extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 7;
         getContentPane().add(jScrollPane1, gridBagConstraints);
 
-        txtDoB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        txtDoB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 14;

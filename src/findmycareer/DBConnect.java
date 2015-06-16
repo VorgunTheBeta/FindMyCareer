@@ -52,18 +52,20 @@ public class DBConnect {
     }
     public void signUp(String user, String password, int accountlvl, String fName, String lName, String Dob){
         accountlvl = 1;
+        int loggedIn = 0;
         Date dob = Date.valueOf(Dob);
         try{
            
-           String insertStatement = "INSERT INTO user(email, password, accountLevel, fName, lName) "
-                   +"VALUES (?,?,?,?,?)";
+           String insertStatement = "INSERT INTO user(email, password, accountLevel, fName, lName, loggedIn, DoB) "
+                   +"VALUES (?,?,?,?,?,?,?)";
            PreparedStatement preState = con.prepareStatement(insertStatement);
            preState.setString(1,user);
            preState.setString(2,password);
            preState.setInt(3, accountlvl);
            preState.setString(4,fName);
            preState.setString(5,lName);
-           preState.setDate(6,dob);
+           preState.setInt(6, loggedIn);
+           preState.setDate(7,dob);
            preState.execute();
            System.out.println("Playa added!");
         }catch(Exception e){
