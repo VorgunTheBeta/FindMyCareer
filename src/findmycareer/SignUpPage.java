@@ -15,12 +15,13 @@ import java.sql.Date;
 public class SignUpPage extends javax.swing.JFrame {
     public boolean isSame = false;
    
-    
+   
     /**
      * Creates new form tabs
      */
     public SignUpPage() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(165, 113, 218));
     }
     
 
@@ -71,7 +72,7 @@ public class SignUpPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
         jLabel1.setText("First Name");
@@ -102,6 +103,7 @@ public class SignUpPage extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         getContentPane().add(jLabel4, gridBagConstraints);
 
+        btnSignUp.setBackground(new java.awt.Color(204, 51, 255));
         btnSignUp.setText("Sign Up");
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +111,7 @@ public class SignUpPage extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(btnSignUp, gridBagConstraints);
@@ -121,7 +123,7 @@ public class SignUpPage extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 20;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(btnCancel, gridBagConstraints);
@@ -142,12 +144,15 @@ public class SignUpPage extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.gridwidth = 3;
         getContentPane().add(jLabel5, gridBagConstraints);
+
+        txtLastName.setBackground(new java.awt.Color(0, 153, 51));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         getContentPane().add(txtLastName, gridBagConstraints);
 
+        txtPasswordTwo.setBackground(new java.awt.Color(0, 153, 51));
         txtPasswordTwo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordTwoActionPerformed(evt);
@@ -158,16 +163,22 @@ public class SignUpPage extends javax.swing.JFrame {
         gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         getContentPane().add(txtPasswordTwo, gridBagConstraints);
+
+        txtEmail.setBackground(new java.awt.Color(0, 153, 51));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         getContentPane().add(txtEmail, gridBagConstraints);
+
+        txtFirstName.setBackground(new java.awt.Color(0, 153, 51));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         getContentPane().add(txtFirstName, gridBagConstraints);
+
+        txtPasswordOne.setBackground(new java.awt.Color(0, 153, 51));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
@@ -195,6 +206,7 @@ public class SignUpPage extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 7;
         getContentPane().add(jScrollPane1, gridBagConstraints);
 
+        txtDoB.setBackground(new java.awt.Color(0, 153, 51));
         txtDoB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
