@@ -25,7 +25,7 @@ public class MainPage extends javax.swing.JFrame {
         cbxPathway.removeAllItems();
         DBConnect db = new DBConnect();
         db.industrySearch();
-        getContentPane().setBackground(new java.awt.Color(36, 107, 178));
+        getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
 
     /**
@@ -61,7 +61,6 @@ public class MainPage extends javax.swing.JFrame {
 
         cbxPathway.setBackground(new java.awt.Color(51, 204, 255));
         cbxPathway.setForeground(new java.awt.Color(230, 230, 230));
-        cbxPathway.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Career Pathways", "Item 2", "Item 3", "Item 4" }));
         cbxPathway.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxPathwayActionPerformed(evt);

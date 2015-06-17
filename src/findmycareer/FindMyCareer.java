@@ -20,6 +20,7 @@ public class FindMyCareer {
     public static Login lgn;
     public static MainPage mPG;
     public static ProfileEdit pfEdt;
+    public static adminPage admnPg;
     //</editor-fold>
     /**
      * @param args the command line arguments
@@ -57,12 +58,17 @@ public class FindMyCareer {
             sUS.dispose();
         }            
     }
-    public static void mainPageShow(){
+    public static void mainPageShow(String st){
         if(mPG == null){
             mPG = new MainPage();
         }
         mPG.setVisible(true);
-        lgn.dispose();
+        if(st.equals("login")){
+        lgn.dispose();    
+        }
+        if(st.equals("edit")){
+            pfEdt.dispose();
+        }
     }
     public static void bootPageShow(String st){
         if(bP == null){
@@ -91,6 +97,13 @@ public class FindMyCareer {
         }
         pfEdt.setVisible(true);
         mPG.dispose();
+    }
+    public static void AdminPageShow(){
+        if(admnPg==null){
+            admnPg = new adminPage();
+        }
+        admnPg.setVisible(true);
+        lgn.dispose();
     }
     //</editor-fold>
     

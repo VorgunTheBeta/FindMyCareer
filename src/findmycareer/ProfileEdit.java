@@ -6,19 +6,22 @@
 
 package findmycareer;
 
+
+
 /**
  *
  * @author 5100006815
  */
 public class ProfileEdit extends javax.swing.JFrame {
     public DBConnect db = new DBConnect();
+    public boolean isSame = false;
     /**
      * Creates new form ProfileEdit
      */
     public ProfileEdit() {
         initComponents();
         db.profileItems(Login.email);
-
+        getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
 
     /**
@@ -47,15 +50,18 @@ public class ProfileEdit extends javax.swing.JFrame {
         txtDoB = new javax.swing.JFormattedTextField();
         txtPasswordOne = new javax.swing.JTextField();
         txtPasswordTwo = new javax.swing.JTextField();
+        btnMakeChange = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
+        btnRemoveAccount = new javax.swing.JButton();
+        txtUserID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.columnWidths = new int[] {0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(230, 230, 230));
         jLabel1.setText("FindMyCareer");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
@@ -112,7 +118,7 @@ public class ProfileEdit extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtPasswordCheck);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridx = 10;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridheight = 5;
         getContentPane().add(jScrollPane1, gridBagConstraints);
@@ -132,7 +138,7 @@ public class ProfileEdit extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(txtEmail, gridBagConstraints);
 
-        txtDoB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        txtDoB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 10;
@@ -143,14 +149,74 @@ public class ProfileEdit extends javax.swing.JFrame {
         gridBagConstraints.gridy = 14;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(txtPasswordOne, gridBagConstraints);
+
+        txtPasswordTwo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordTwoActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 16;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(txtPasswordTwo, gridBagConstraints);
 
+        btnMakeChange.setText("Make Changes");
+        btnMakeChange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMakeChangeActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 20;
+        getContentPane().add(btnMakeChange, gridBagConstraints);
+
+        btnCancel.setText("Cancel");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 20;
+        getContentPane().add(btnCancel, gridBagConstraints);
+
+        btnRemoveAccount.setText("Delete Account");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 6;
+        getContentPane().add(btnRemoveAccount, gridBagConstraints);
+
+        txtUserID.setEditable(false);
+        txtUserID.setText("jTextField1");
+        txtUserID.setUI(null);
+        txtUserID.setEnabled(false);
+        txtUserID.setFocusable(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 22;
+        getContentPane().add(txtUserID, gridBagConstraints);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPasswordTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordTwoActionPerformed
+        // TODO add your handling code here:
+        isSame = false;
+        if(txtPasswordOne.getText().equals(txtPasswordTwo.getText())){
+            isSame = true;
+        }
+        if(isSame){
+            this.txtPasswordCheck.setText("Passwords Match");
+        }else{
+            this.txtPasswordCheck.setText("Passwords do not match");
+        }
+    }//GEN-LAST:event_txtPasswordTwoActionPerformed
+
+    private void btnMakeChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakeChangeActionPerformed
+        // TODO add your handling code here:
+        if(!txtFname.equals("")&&!txtLname.equals("")&&!txtEmail.equals("")&&!txtPasswordOne.equals("")&&!txtPasswordTwo.equals("")&&isSame){ 
+        db.editProfile(txtUserID.getText(), txtEmail.getText(), txtPasswordOne.getText(), txtFname.getText(), txtLname.getText(), txtDoB.getText());
+        FindMyCareer.mainPageShow("edit");
+        }
+    }//GEN-LAST:event_btnMakeChangeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,6 +254,9 @@ public class ProfileEdit extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnMakeChange;
+    private javax.swing.JButton btnRemoveAccount;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -204,5 +273,6 @@ public class ProfileEdit extends javax.swing.JFrame {
     private javax.swing.JTextArea txtPasswordCheck;
     public static javax.swing.JTextField txtPasswordOne;
     public static javax.swing.JTextField txtPasswordTwo;
+    public static javax.swing.JTextField txtUserID;
     // End of variables declaration//GEN-END:variables
 }
