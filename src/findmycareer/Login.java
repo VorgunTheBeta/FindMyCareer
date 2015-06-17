@@ -6,6 +6,10 @@
 
 package findmycareer;
 
+import javax.swing.JOptionPane;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author 7107723813
@@ -13,6 +17,7 @@ package findmycareer;
 public class Login extends javax.swing.JFrame {
     public static String email;
     public String password;
+    
     /**
      * Creates new form Login
      */
@@ -128,8 +133,23 @@ public class Login extends javax.swing.JFrame {
         DBConnect db = new DBConnect();
         if(db.login(email,password)==true){
             System.out.println("Congratulations, it didnt break");
+            if(DBConnect.admin){
+               FindMyCareer.AdminPageShow();
+            }else{
             FindMyCareer.mainPageShow();
+            }
+        } 
+        else { JOptionPane.showMessageDialog(null,"The User or Password does not exist.");
         }
+        
+        
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.MONTH,6);
+        
+            java.util.Date expirationDate = cal.getTime();
+            System.err.println(expirationDate);
         
     }//GEN-LAST:event_btnLoginActionPerformed
 

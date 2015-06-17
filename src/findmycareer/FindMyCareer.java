@@ -19,6 +19,7 @@ public class FindMyCareer {
     public static SignUpPage sUP;
     public static Login lgn;
     public static MainPage mPG;
+    public static adminPage admnPg;
     //</editor-fold>
     /**
      * @param args the command line arguments
@@ -84,6 +85,15 @@ public class FindMyCareer {
             lgn.getContentPane().removeAll();
         }
     }
+        public static void AdminPageShow(){
+        if(admnPg == null){
+        admnPg = new adminPage();
+        }
+        admnPg.setVisible(true);
+        lgn.dispose();
+        }
+    
+    
     //</editor-fold>
     
 }
