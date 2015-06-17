@@ -12,11 +12,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
-/**
- *
- * @author 5100006815
- */
+
+
+
 public class DBConnect {
 
     private Connection con;
@@ -59,9 +62,21 @@ public class DBConnect {
             if (check == false) {
                 System.out.println("User Does Not Exist");
             }
-            String SQL = "UPDATE user SET loggedIn = '1' WHERE email = '" + user + "'";
+            DateFormat dF = new SimpleDateFormat("yyyy/MM/dd");
+            Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.MONTH,6);
+        
+            java.util.Date expirationDate = cal.getTime();
+            System.err.println(expirationDate);
+            
+            String SQL = "UPDATE user SET loggedIn = '1', lastLogin ='"+dF.format(date)+"', accountExpire = '"+dF.format(expirationDate)+"' WHERE email = '" + user + "'";
             st.execute(SQL);
 
+            //set last login date. 
+            
+            
         } catch (Exception e) {
             System.out.println("ERROR: " + e.getMessage());
         }
