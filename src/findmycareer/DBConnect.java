@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -34,19 +35,26 @@ public class DBConnect {
     public boolean login(String user, String password){
         boolean check = false;
         int accountLvl = 0;
+        boolean active = true;
         admin = false;
         try{
             st = con.createStatement();
             String sql = "SELECT * FROM user WHERE email = '"+user+"' AND password = '"+password+"'";
             rs = st.executeQuery(sql);
             while(rs.next()){
-                check = true;
+                
                 accountLvl = rs.getInt(4);
+                active = rs.getBoolean(10);
                 if(accountLvl == 1){
                     admin = false;
                 }
                 if(accountLvl == 2){
                     admin = true;
+                }
+                if(active){
+                    check = true;
+                }else{
+                    check = false;
                 }
             }
             if(check == false){
@@ -163,6 +171,16 @@ public class DBConnect {
            System.out.println("Profile changed");
         }catch(Exception e){
             System.out.println("You done goofed"+e.getMessage());
+        }
+    }
+    public void showUsers(){
+        try{
+           st = con.createStatement();
+           String sql = "SELECT email, accountLevel, fName, lName FROM user";
+           rs = st.executeQuery(sql);
+           adminPage.tblUsers.setModel(DbUtils.resultSetToTableModel(rs));
+        }catch(Exception e){
+            System.out.println("Something went wrong "+e.getMessage());
         }
     }
 }

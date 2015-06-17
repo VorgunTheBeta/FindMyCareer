@@ -69,6 +69,9 @@ public class FindMyCareer {
         if(st.equals("edit")){
             pfEdt.dispose();
         }
+        if(st.equals("admin")){
+            admnPg.dispose();
+        }
     }
     public static void bootPageShow(String st){
         if(bP == null){

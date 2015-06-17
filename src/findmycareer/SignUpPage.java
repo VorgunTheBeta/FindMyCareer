@@ -6,6 +6,7 @@
 
 package findmycareer;
 import java.util.Date;
+import javax.swing.JOptionPane;
 /**
  *
  * @author 5100006815
@@ -68,6 +69,7 @@ public class SignUpPage extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sign Up Page");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0};
         layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
@@ -218,7 +220,10 @@ public class SignUpPage extends javax.swing.JFrame {
             DBConnect db = new DBConnect();
             db.signUp(txtEmail.getText(), txtPasswordOne.getText(), WIDTH, txtFirstName.getText(), txtLastName.getText(), txtDoB.getText());
             FindMyCareer.signUpSubmit();
+        }else{
+            JOptionPane.showMessageDialog(this, "Missing Input Data");
         }
+        
        
     }//GEN-LAST:event_btnSignUpActionPerformed
 
