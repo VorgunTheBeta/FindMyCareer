@@ -127,7 +127,7 @@ public class Login extends javax.swing.JFrame {
         email = txtEmail.getText();
         password = txtPassword.getText();
         DBConnect db = new DBConnect();
-        if(db.login(email,password)==true){
+        if(db.login(email,password)==true&&DBConnect.active){
             System.out.println("Congratulations, it didnt break");
             if(DBConnect.admin){
             FindMyCareer.AdminPageShow();

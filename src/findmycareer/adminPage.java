@@ -107,6 +107,11 @@ public class adminPage extends javax.swing.JFrame {
         getContentPane().add(btnExit, gridBagConstraints);
 
         btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 8;
@@ -136,6 +141,11 @@ public class adminPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+        FindMyCareer.AdminProfileEdit();
+    }//GEN-LAST:event_btnEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +192,6 @@ public class adminPage extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable tblUsers;
-    private javax.swing.JTextField txtUserId;
+    public static javax.swing.JTextField txtUserId;
     // End of variables declaration//GEN-END:variables
 }

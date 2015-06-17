@@ -21,6 +21,7 @@ public class FindMyCareer {
     public static MainPage mPG;
     public static ProfileEdit pfEdt;
     public static adminPage admnPg;
+    public static AdminProfileEdit admnPfEdt;
     //</editor-fold>
     /**
      * @param args the command line arguments
@@ -107,6 +108,13 @@ public class FindMyCareer {
         }
         admnPg.setVisible(true);
         lgn.dispose();
+    }
+    public static void AdminProfileEdit(){
+        if(admnPfEdt==null){
+            admnPfEdt = new AdminProfileEdit();
+        }
+        admnPfEdt.setVisible(true);
+        admnPg.dispose();
     }
     //</editor-fold>
     
