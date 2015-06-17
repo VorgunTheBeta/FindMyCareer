@@ -198,7 +198,7 @@
         <Component class="javax.swing.JTextArea" name="txtPassComp">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="b2" green="6b" red="24" type="rgb"/>
+              <Color blue="ff" green="6f" red="83" type="rgb"/>
             </Property>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>

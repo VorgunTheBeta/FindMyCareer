@@ -181,7 +181,7 @@ public class SignUpPage extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         getContentPane().add(jLabel6, gridBagConstraints);
 
-        txtPassComp.setBackground(new java.awt.Color(36, 107, 178));
+        txtPassComp.setBackground(new java.awt.Color(131, 111, 255));
         txtPassComp.setColumns(20);
         txtPassComp.setRows(5);
         txtPassComp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 107, 178)));
