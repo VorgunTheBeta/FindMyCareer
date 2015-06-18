@@ -18,9 +18,8 @@ public class bootPage extends javax.swing.JFrame {
      */
     public bootPage() {
         initComponents();
-        this.setLocationRelativeTo(null);
          //setBackground(new java.awt.Color(255, 163, 0));
-        getContentPane().setBackground(new java.awt.Color(36, 107, 178));
+        getContentPane().setBackground(new java.awt.Color(131, 111, 255));
     }
 
     /**
@@ -41,6 +40,7 @@ public class bootPage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("FindMyCareer");
         setBackground(new java.awt.Color(255, 193, 0));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
@@ -74,6 +74,7 @@ public class bootPage extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(btnSignUp, gridBagConstraints);
 
+        btnLogIn.setBackground(new java.awt.Color(204, 51, 255));
         btnLogIn.setText("Log in");
         btnLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +87,7 @@ public class bootPage extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(btnLogIn, gridBagConstraints);
 
-        jPanel1.setBackground(new java.awt.Color(36, 107, 178));
+        jPanel1.setBackground(new java.awt.Color(131, 111, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -104,7 +105,7 @@ public class bootPage extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         getContentPane().add(jPanel1, gridBagConstraints);
 
-        jPanel2.setBackground(new java.awt.Color(36, 107, 178));
+        jPanel2.setBackground(new java.awt.Color(131, 111, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(20, 20));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

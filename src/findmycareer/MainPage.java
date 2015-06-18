@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package findmycareer;
+
+
+
 
 /**
  *
@@ -16,13 +20,12 @@ public class MainPage extends javax.swing.JFrame {
      */
     public MainPage() {
         initComponents();
-        this.setLocationRelativeTo(null);
         cbxIndustry.removeAllItems();
         cbxCategory.removeAllItems();
         cbxPathway.removeAllItems();
         DBConnect db = new DBConnect();
         db.industrySearch();
-        getContentPane().setBackground(new java.awt.Color(36, 107, 178));
+        getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
 
     /**
@@ -45,18 +48,19 @@ public class MainPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(425, 250));
+        setPreferredSize(new java.awt.Dimension(475, 250));
         setResizable(false);
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0};
+        layout.columnWidths = new int[] {0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0};
         layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
         cbxPathway.setBackground(new java.awt.Color(51, 204, 255));
         cbxPathway.setForeground(new java.awt.Color(230, 230, 230));
-        cbxPathway.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Career Pathways", "Item 2", "Item 3", "Item 4" }));
         cbxPathway.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxPathwayActionPerformed(evt);
@@ -86,17 +90,14 @@ public class MainPage extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(cbxCategory, gridBagConstraints);
 
+        btnSearch.setBackground(new java.awt.Color(153, 102, 255));
         btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 12;
         getContentPane().add(btnSearch, gridBagConstraints);
 
+        btnExit.setBackground(new java.awt.Color(36, 107, 178));
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,9 +105,8 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 0;
         getContentPane().add(btnExit, gridBagConstraints);
 
         cbxIndustry.setBackground(new java.awt.Color(51, 204, 255));
@@ -172,6 +172,24 @@ public class MainPage extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         getContentPane().add(jLabel4, gridBagConstraints);
 
+        jButton1.setBackground(new java.awt.Color(36, 107, 178));
+        jButton1.setText("Log Out");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 4;
+        getContentPane().add(jButton1, gridBagConstraints);
+
+        jButton2.setText("Edit Profile");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 8;
+        getContentPane().add(jButton2, gridBagConstraints);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -190,7 +208,7 @@ public class MainPage extends javax.swing.JFrame {
         int id = cbxIndustry.getSelectedIndex();
         DBConnect db = new DBConnect();
         db.categorySearch(id);
-
+        
     }//GEN-LAST:event_cbxIndustryActionPerformed
 
     private void cbxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCategoryActionPerformed
@@ -199,13 +217,13 @@ public class MainPage extends javax.swing.JFrame {
         int catid = cbxCategory.getSelectedIndex();
         int indusid = cbxIndustry.getSelectedIndex();
         DBConnect db = new DBConnect();
-        db.pathwaySearch(catid, indusid);
+        db.pathwaySearch(catid,indusid);
     }//GEN-LAST:event_cbxCategoryActionPerformed
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        FindMyCareer.searchPageShow("search");
-    }//GEN-LAST:event_btnSearchActionPerformed
+        FindMyCareer.ProfileEdit();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,6 +266,8 @@ public class MainPage extends javax.swing.JFrame {
     public static javax.swing.JComboBox cbxCategory;
     public static javax.swing.JComboBox cbxIndustry;
     public static javax.swing.JComboBox cbxPathway;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

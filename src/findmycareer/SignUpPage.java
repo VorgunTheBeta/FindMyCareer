@@ -5,24 +5,24 @@
  */
 
 package findmycareer;
-
+import java.util.Date;
+import javax.swing.JOptionPane;
 /**
  *
  * @author 5100006815
  */
 public class SignUpPage extends javax.swing.JFrame {
     public boolean isSame = false;
-
+   
     
     /**
      * Creates new form tabs
      */
     public SignUpPage() {
         initComponents();
-                this.setLocationRelativeTo(null);
-        getContentPane().setBackground(new java.awt.Color(36, 107, 178));
+        getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
-
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,6 +52,8 @@ public class SignUpPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtPassComp = new javax.swing.JTextArea();
+        txtDoB = new javax.swing.JFormattedTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
 
@@ -67,9 +69,10 @@ public class SignUpPage extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sign Up Page");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0, 6, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
         jLabel1.setText("First Name");
@@ -108,7 +111,7 @@ public class SignUpPage extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(btnSignUp, gridBagConstraints);
 
@@ -120,7 +123,7 @@ public class SignUpPage extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridy = 16;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         getContentPane().add(btnCancel, gridBagConstraints);
 
@@ -134,7 +137,6 @@ public class SignUpPage extends javax.swing.JFrame {
         getContentPane().add(jLabel2, gridBagConstraints);
 
         jLabel5.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(230, 230, 230));
         jLabel5.setText("FindMyCareer");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -181,9 +183,8 @@ public class SignUpPage extends javax.swing.JFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         getContentPane().add(jLabel6, gridBagConstraints);
 
-        txtPassComp.setBackground(new java.awt.Color(36, 107, 178));
+        txtPassComp.setBackground(new java.awt.Color(131, 111, 255));
         txtPassComp.setColumns(20);
-        txtPassComp.setForeground(new java.awt.Color(230, 230, 230));
         txtPassComp.setRows(5);
         txtPassComp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 107, 178)));
         txtPassComp.setFocusable(false);
@@ -195,6 +196,21 @@ public class SignUpPage extends javax.swing.JFrame {
         gridBagConstraints.gridheight = 7;
         getContentPane().add(jScrollPane1, gridBagConstraints);
 
+        txtDoB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        txtDoB.setValue(new Date());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(txtDoB, gridBagConstraints);
+
+        jLabel7.setText("Date Of Birth");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        getContentPane().add(jLabel7, gridBagConstraints);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -202,10 +218,13 @@ public class SignUpPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!txtFirstName.equals("")&&!txtLastName.equals("")&&!txtEmail.equals("")&&!txtPasswordOne.equals("")&&!txtPasswordTwo.equals("")&&isSame){
             DBConnect db = new DBConnect();
-            db.signUp(txtEmail.getText(), txtPasswordOne.getText(), WIDTH, txtFirstName.getText(), txtLastName.getText());
+            db.signUp(txtEmail.getText(), txtPasswordOne.getText(), WIDTH, txtFirstName.getText(), txtLastName.getText(), txtDoB.getText());
             FindMyCareer.signUpSubmit();
+        }else{
+            JOptionPane.showMessageDialog(this, "Missing Input Data");
         }
-
+        
+       
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -222,7 +241,7 @@ public class SignUpPage extends javax.swing.JFrame {
             isSame = true;
         }
         if(isSame){
-            this.txtPassComp.setText("Passwords Match");
+        this.txtPassComp.setText("Passwords Match");
         }else{
             this.txtPassComp.setText("Passwords do not match");
         }
@@ -274,8 +293,10 @@ public class SignUpPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lNameLabel;
+    private javax.swing.JFormattedTextField txtDoB;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;

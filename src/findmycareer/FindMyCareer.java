@@ -19,6 +19,9 @@ public class FindMyCareer {
     public static SignUpPage sUP;
     public static Login lgn;
     public static MainPage mPG;
+    public static ProfileEdit pfEdt;
+    public static adminPage admnPg;
+    public static AdminProfileEdit admnPfEdt;
     public static SearchPage sPG;
     //</editor-fold>
     /**
@@ -57,12 +60,23 @@ public class FindMyCareer {
             sUS.dispose();
         }            
     }
-    public static void mainPageShow(){
+    public static void mainPageShow(String st){
         if(mPG == null){
             mPG = new MainPage();
         }
         mPG.setVisible(true);
-        lgn.dispose();
+        if(st.equals("login")){
+        lgn.dispose();    
+        }
+        if(st.equals("edit")){
+            pfEdt.dispose();
+        }
+        if(st.equals("admin")){
+            admnPg.dispose();
+        }
+        if(st.equals("searchPage")){
+            sPG.setVisible(false);
+        }
     }
     public static void bootPageShow(String st){
         if(bP == null){
@@ -85,6 +99,27 @@ public class FindMyCareer {
             lgn.getContentPane().removeAll();
         }
     }
+    public static void ProfileEdit(){
+        if(pfEdt==null){
+            pfEdt = new ProfileEdit();
+        }
+        pfEdt.setVisible(true);
+        mPG.dispose();
+    }
+    public static void AdminPageShow(){
+        if(admnPg==null){
+            admnPg = new adminPage();
+        }
+        admnPg.setVisible(true);
+        lgn.dispose();
+    }
+    public static void AdminProfileEdit(){
+        if(admnPfEdt==null){
+            admnPfEdt = new AdminProfileEdit();
+        }
+        admnPfEdt.setVisible(true);
+        admnPg.dispose();
+    }
     public static void searchPageShow(String st){
          if(sPG == null){
             sPG = new SearchPage();
@@ -92,5 +127,7 @@ public class FindMyCareer {
         sPG.setVisible(true);
         mPG.dispose();
     }//</editor-fold>
+    
+
     
 }
