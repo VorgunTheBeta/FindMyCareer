@@ -7,7 +7,8 @@ package findmycareer;
 
 /**
  *
- * @author 7100618814
+ * @author Trai Torti
+ * @author Josh Cox
  */
 public class SearchPage extends javax.swing.JFrame {
 
@@ -16,11 +17,12 @@ public class SearchPage extends javax.swing.JFrame {
      */
     public SearchPage() {
         initComponents();
+        DBConnect db = new DBConnect();
+        db.courseSearch(WIDTH);
         setLocationRelativeTo(null);
         cbxCourses.removeAllItems();
         cbxJobs.removeAllItems();
         cbxSearch.removeAllItems();
-        DBConnect db = new DBConnect();
     }
 
     /**
@@ -38,11 +40,13 @@ public class SearchPage extends javax.swing.JFrame {
         cbxJobs = new javax.swing.JComboBox();
         cbxSearch = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
+        btnBack2 = new javax.swing.JButton();
+        btnSearch2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 6, 0, 6, 0, 6, 0, 6, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
@@ -62,6 +66,9 @@ public class SearchPage extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 2;
+        gridBagConstraints.ipady = 1;
         getContentPane().add(cbxCourses, gridBagConstraints);
 
         cbxJobs.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -73,6 +80,7 @@ public class SearchPage extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(cbxJobs, gridBagConstraints);
 
         cbxSearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -84,6 +92,7 @@ public class SearchPage extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(cbxSearch, gridBagConstraints);
 
         jLabel2.setText("Select Your Career path");
@@ -91,6 +100,23 @@ public class SearchPage extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         getContentPane().add(jLabel2, gridBagConstraints);
+
+        btnBack2.setText("Back");
+        btnBack2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack2ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 12;
+        getContentPane().add(btnBack2, gridBagConstraints);
+
+        btnSearch2.setText("Search");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
+        getContentPane().add(btnSearch2, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -114,6 +140,11 @@ public class SearchPage extends javax.swing.JFrame {
     private void cbxSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxSearchActionPerformed
+
+    private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
+        // TODO add your handling code here:
+        FindMyCareer.mainPageShow("mainPage");
+    }//GEN-LAST:event_btnBack2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,6 +182,8 @@ public class SearchPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack2;
+    private javax.swing.JButton btnSearch2;
     public static javax.swing.JComboBox cbxCourses;
     public static javax.swing.JComboBox cbxJobs;
     public static javax.swing.JComboBox cbxSearch;
