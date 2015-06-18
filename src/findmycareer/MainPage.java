@@ -14,7 +14,7 @@ package findmycareer;
  * @author 7107723813
  */
 public class MainPage extends javax.swing.JFrame {
-
+    public DBConnect db = new DBConnect();
     /**
      * Creates new form MainPage
      */
@@ -23,7 +23,6 @@ public class MainPage extends javax.swing.JFrame {
         cbxIndustry.removeAllItems();
         cbxCategory.removeAllItems();
         cbxPathway.removeAllItems();
-        DBConnect db = new DBConnect();
         db.industrySearch();
         getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
@@ -174,6 +173,11 @@ public class MainPage extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(36, 107, 178));
         jButton1.setText("Log Out");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 4;
@@ -206,7 +210,6 @@ public class MainPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         cbxCategory.removeAllItems();
         int id = cbxIndustry.getSelectedIndex();
-        DBConnect db = new DBConnect();
         db.categorySearch(id);
         
     }//GEN-LAST:event_cbxIndustryActionPerformed
@@ -216,7 +219,7 @@ public class MainPage extends javax.swing.JFrame {
         cbxPathway.removeAllItems();
         int catid = cbxCategory.getSelectedIndex();
         int indusid = cbxIndustry.getSelectedIndex();
-        DBConnect db = new DBConnect();
+        
         db.pathwaySearch(catid,indusid);
     }//GEN-LAST:event_cbxCategoryActionPerformed
 
@@ -224,6 +227,12 @@ public class MainPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         FindMyCareer.ProfileEdit();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        db.logout(Login.email, Login.txtPassword.getText());
+        FindMyCareer.logInShow("MainPage");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

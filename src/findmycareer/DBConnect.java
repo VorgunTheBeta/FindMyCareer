@@ -5,7 +5,7 @@
  */
 package findmycareer;
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +13,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import java.util.Calendar;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -37,7 +40,6 @@ public class DBConnect {
     public boolean login(String user, String password){
         boolean check = false;
         int accountLvl = 0;
-        
         admin = false;
         try{
             st = con.createStatement();
@@ -60,21 +62,37 @@ public class DBConnect {
             if(active == false){
                 JOptionPane.showMessageDialog(FindMyCareer.lgn,"Your account has expired");
             }
-            String SQL ="UPDATE user SET loggedIn = '1' WHERE email = '"+user+"'";
+            DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+            Date date = new Date();
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            cal.add(Calendar.MONTH, 6);
+            Date expireDate = cal.getTime();
+            
+            String SQL ="UPDATE user SET loggedIn = '1', lastLogin = '"+df.format(date)+"', accountExpire = '"+df.format(expireDate)+"' WHERE email = '"+user+"' AND password = '"+password+"'";
             st.execute(SQL);
         }catch(Exception e){
             System.out.println("ERROR: "+e.getMessage());
         }
         return check;
     }
-    public void signUp(String user, String password, int accountlvl, String fName, String lName, String Dob){
+    public void logout(String user, String password){
+        try{
+            st = con.createStatement();
+            String sql = "UPDATE user SET loggedIn = '0' WHERE email = '"+user+"' AND password = '"+password+"'";
+            st.execute(sql);
+        }catch(SQLException e){
+            System.out.println("Error: "+e.getMessage());
+        }
+    }
+    public void signUp(String user, String password, int accountlvl, String fName, String lName, String Dob, String ph){
         accountlvl = 1;
         int loggedIn = 0;
-        Date dob = Date.valueOf(Dob);
+//        Date dob = Date.valueOf(Dob);
         try{
            
-           String insertStatement = "INSERT INTO user(email, password, accountLevel, fName, lName, loggedIn, DoB, active) "
-                   +"VALUES (?,?,?,?,?,?,?,?)";
+           String insertStatement = "INSERT INTO user(email, password, accountLevel, fName, lName, loggedIn, DoB, active, phoneNumber) "
+                   +"VALUES (?,?,?,?,?,?,?,?,?)";
            PreparedStatement preState = con.prepareStatement(insertStatement);
            preState.setString(1,user);
            preState.setString(2,password);
@@ -82,8 +100,9 @@ public class DBConnect {
            preState.setString(4,fName);
            preState.setString(5,lName);
            preState.setInt(6, loggedIn);
-           preState.setDate(7,dob);
+           preState.setString(7,Dob);
            preState.setBoolean(8,true);
+           preState.setString(9,ph);
            preState.execute();
            System.out.println("Playa added!");
         }catch(Exception e){
@@ -163,11 +182,11 @@ public class DBConnect {
         }
     }
     public void editProfile(String userID, String user, String password, String fName, String lName, String Dob){
-        Date dob = Date.valueOf(Dob);
+//        Date dob = Date.valueOf(Dob);
         try{
            st = con.createStatement();
            String editStatement = "UPDATE user SET email =  '"+user+"', password = '"+password+"', fName = '"+fName+"', lName = '"
-                   +lName+"', DoB = '"+dob+"' WHERE userID = '"+userID+"'";
+                   +lName+"', DoB = '"+Dob+"' WHERE userID = '"+userID+"'";
           st.execute(editStatement);
            System.out.println("Profile changed");
         }catch(Exception e){
@@ -177,7 +196,7 @@ public class DBConnect {
     public void showUsers(){
         try{
            st = con.createStatement();
-           String sql = "SELECT email, accountLevel, fName, lName FROM user";
+           String sql = "SELECT UserID, email, accountLevel, fName, lName FROM user";
            rs = st.executeQuery(sql);
            adminPage.tblUsers.setModel(DbUtils.resultSetToTableModel(rs));
         }catch(Exception e){
@@ -214,12 +233,12 @@ public class DBConnect {
             System.out.println("ERROR: "+e.getMessage());
         }
     }
-     public void editProfileAdmin(String userID, String user, String password, String fName, String lName, String Dob, String accountlvl, int active){
-        Date dob = Date.valueOf(Dob);
+    public void editProfileAdmin(String userID, String user, String password, String fName, String lName, String Dob, String accountlvl, int active){
+//        Date dob = Date.valueOf(Dob);
         try{
            st = con.createStatement();
            String editStatement = "UPDATE user SET email =  '"+user+"', password = '"+password+"', fName = '"+fName+"', lName = '"
-                   +lName+"', DoB = '"+dob+"', accountLevel = '"+accountlvl+"', active = '"+active+"' WHERE userID = '"+userID+"'";
+                   +lName+"', DoB = '"+Dob+"', accountLevel = '"+accountlvl+"', active = '"+active+"' WHERE userID = '"+userID+"'";
           st.execute(editStatement);
            System.out.println("Profile changed");
         }catch(Exception e){

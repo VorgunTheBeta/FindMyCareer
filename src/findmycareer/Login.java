@@ -130,7 +130,7 @@ public class Login extends javax.swing.JFrame {
         if(db.login(email,password)==true&&DBConnect.active){
             System.out.println("Congratulations, it didnt break");
             if(DBConnect.admin){
-            FindMyCareer.AdminPageShow();
+            FindMyCareer.AdminPageShow("login");
             }else{
             FindMyCareer.mainPageShow("login");
             }
@@ -188,6 +188,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblSignUpPage;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JPasswordField txtPassword;
+    public static javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,6 +22,7 @@ public class FindMyCareer {
     public static ProfileEdit pfEdt;
     public static adminPage admnPg;
     public static AdminProfileEdit admnPfEdt;
+    public static SignUpConfirmPage sUC;
     //</editor-fold>
     /**
      * @param args the command line arguments
@@ -34,11 +35,18 @@ public class FindMyCareer {
     }
     //<editor-fold defaultstate="collapsed" desc=" Button Functions ">
     public static void signUpSubmit(){
+        if(sUC == null){
+            sUC = new SignUpConfirmPage();
+        }
+        sUC.setVisible(true);
+        sUP.dispose();
+    }
+    public static void signUpConfirm(){
         if(sUS == null){
             sUS = new SignUpSuccess();
         }
         sUS.setVisible(true);
-        sUP.dispose();
+        sUC.dispose();
     }
     public static void signUpShow(){
         if(sUP == null){
@@ -57,7 +65,10 @@ public class FindMyCareer {
         }
         if(st.equals("SignUpSuccess")){
             sUS.dispose();
-        }            
+        }
+        if(st.equals("MainPage")){
+            mPG.dispose();
+        }
     }
     public static void mainPageShow(String st){
         if(mPG == null){
@@ -73,6 +84,9 @@ public class FindMyCareer {
         if(st.equals("admin")){
             admnPg.dispose();
         }
+        if(st.equals("adminEdit")){
+            admnPfEdt.dispose();
+        }
     }
     public static void bootPageShow(String st){
         if(bP == null){
@@ -85,6 +99,9 @@ public class FindMyCareer {
         if(st.equals("SignUpPage")){
             sUP.dispose();
         }
+        if(st.equals("SignUpConfirmPage")){
+            sUC.dispose();
+        }
     }
     public static void ResetPageComponents(String st){
         if(st.equals("SignUpPage")){
@@ -94,6 +111,9 @@ public class FindMyCareer {
         if(st.equals("Login")){
             lgn.getContentPane().removeAll();
         }
+        if(st.equals("AdminProfileEdit")){
+            admnPfEdt.getContentPane().removeAll();
+        }
     }
     public static void ProfileEdit(){
         if(pfEdt==null){
@@ -102,12 +122,17 @@ public class FindMyCareer {
         pfEdt.setVisible(true);
         mPG.dispose();
     }
-    public static void AdminPageShow(){
+    public static void AdminPageShow(String st){
         if(admnPg==null){
             admnPg = new adminPage();
         }
         admnPg.setVisible(true);
-        lgn.dispose();
+        if(st.equals("login")){
+        lgn.dispose();    
+        }
+        if(st.equals("AdminEdit")){
+            admnPfEdt.dispose();
+        }
     }
     public static void AdminProfileEdit(){
         if(admnPfEdt==null){

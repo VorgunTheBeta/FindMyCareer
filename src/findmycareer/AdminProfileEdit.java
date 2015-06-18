@@ -228,6 +228,11 @@ public class AdminProfileEdit extends javax.swing.JFrame {
         getContentPane().add(btnMakeChange, gridBagConstraints);
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 18;
         gridBagConstraints.gridy = 30;
@@ -313,8 +318,15 @@ public class AdminProfileEdit extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!txtFname.equals("")&&!txtLname.equals("")&&!txtEmail.equals("")&&!txtPasswordOne.equals("")&&!txtPasswordTwo.equals("")&&isSame){
             db.editProfileAdmin(txtUserID.getText(), txtEmail.getText(), txtPasswordOne.getText(), txtFname.getText(), txtLname.getText(), txtDoB.getText(),accountlvl,active);
+            FindMyCareer.mainPageShow("adminEdit");
         }
     }//GEN-LAST:event_btnMakeChangeActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        FindMyCareer.ResetPageComponents("AdminProfileEdit");
+        FindMyCareer.AdminPageShow("AdminEdit");
+    }//GEN-LAST:event_btnCancelActionPerformed
 
     /**
      * @param args the command line arguments
