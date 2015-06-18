@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package findmycareer;
 
 /**
@@ -17,6 +16,11 @@ public class SearchPage extends javax.swing.JFrame {
      */
     public SearchPage() {
         initComponents();
+        setLocationRelativeTo(null);
+        cbxCourses.removeAllItems();
+        cbxJobs.removeAllItems();
+        cbxSearch.removeAllItems();
+        DBConnect db = new DBConnect();
     }
 
     /**
@@ -30,9 +34,9 @@ public class SearchPage extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
-        jComboBox3 = new javax.swing.JComboBox();
+        cbxCourses = new javax.swing.JComboBox();
+        cbxJobs = new javax.swing.JComboBox();
+        cbxSearch = new javax.swing.JComboBox();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,29 +53,67 @@ public class SearchPage extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         getContentPane().add(jLabel1, gridBagConstraints);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxCourses.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxCourses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxCoursesActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
-        getContentPane().add(jComboBox1, gridBagConstraints);
+        getContentPane().add(cbxCourses, gridBagConstraints);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxJobs.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxJobs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxJobsActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
-        getContentPane().add(jComboBox2, gridBagConstraints);
+        getContentPane().add(cbxJobs, gridBagConstraints);
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxSearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxSearchActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
-        getContentPane().add(jComboBox3, gridBagConstraints);
+        getContentPane().add(cbxSearch, gridBagConstraints);
 
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new java.awt.GridBagConstraints());
+        jLabel2.setText("Select Your Career path");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        getContentPane().add(jLabel2, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbxCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCoursesActionPerformed
+        // TODO add your handling code here:
+        cbxJobs.removeAllItems();
+        int id = cbxCourses.getSelectedIndex();
+        DBConnect db = new DBConnect();
+        db.jobSearch(id);
+    }//GEN-LAST:event_cbxCoursesActionPerformed
+
+    private void cbxJobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxJobsActionPerformed
+        // TODO add your handling code here:
+        cbxSearch.removeAllItems();
+        int courseid = cbxSearch.getSelectedIndex();
+        DBConnect db = new DBConnect();
+        db.categorySearch(courseid);
+    }//GEN-LAST:event_cbxJobsActionPerformed
+
+    private void cbxSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,9 +151,9 @@ public class SearchPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
+    public static javax.swing.JComboBox cbxCourses;
+    public static javax.swing.JComboBox cbxJobs;
+    public static javax.swing.JComboBox cbxSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

@@ -87,6 +87,11 @@ public class MainPage extends javax.swing.JFrame {
         getContentPane().add(cbxCategory, gridBagConstraints);
 
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 12;
@@ -196,6 +201,11 @@ public class MainPage extends javax.swing.JFrame {
         DBConnect db = new DBConnect();
         db.pathwaySearch(catid, indusid);
     }//GEN-LAST:event_cbxCategoryActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        FindMyCareer.searchPageShow("search");
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
      * @param args the command line arguments

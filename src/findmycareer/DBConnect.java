@@ -10,7 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Types;
 
 /**
  *
@@ -43,7 +42,7 @@ public class DBConnect {
             if(check == false){
                 System.out.println("User Does Not Exist");
             }
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println("ERROR: "+e.getMessage());
         }
         return check;
@@ -62,7 +61,7 @@ public class DBConnect {
            preState.setString(5,lName);
            preState.execute();
            System.out.println("Playa added!");
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println("You done goofed"+e.getMessage());
         }
     }
@@ -74,7 +73,7 @@ public class DBConnect {
             while(rs.next()){
                 MainPage.cbxIndustry.addItem(rs.getString(2));
             }
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println("Nope: "+e.getMessage());
         }
         return rs.toString();
@@ -93,7 +92,7 @@ public class DBConnect {
             while(rs.next()){
                 MainPage.cbxCategory.addItem(rs.getString(2));
             }
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println("Nope: "+e.getMessage());
         }
         return rs.toString();
@@ -113,9 +112,26 @@ public class DBConnect {
             while(rs.next()){
                 MainPage.cbxPathway.addItem(rs.getString(2));
             }
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println("Nope: "+e.getMessage());
         }
         return rs.toString();
+    }
+    public String jobSearch(int id){
+    try{
+        
+        System.out.println(id);
+        id = id+1;
+        st=con.createStatement();
+        String catSearch = "Select * FROM job WHERE course_courseID = '" + id+"'";
+        
+        rs=st.executeQuery(catSearch);
+        while(rs.next()){
+            SearchPage.cbxCourses.addItem(rs.getString(2));
+        }
+    }catch(SQLException e){
+      System.out.println("Nope: "+e.getMessage());
+        }
+        return rs.toString();  
     }
 }
