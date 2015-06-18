@@ -7,7 +7,7 @@ package findmycareer;
 
 /**
  *
- * @author 5100006815
+ * @author 7100618814
  */
 public class SearchPage extends javax.swing.JFrame {
 

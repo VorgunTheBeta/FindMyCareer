@@ -117,6 +117,23 @@ public class DBConnect {
         }
         return rs.toString();
     }
+    public String courseSearch(int id){
+    try{
+        
+        System.out.println(id);
+        id = id+1;
+        st=con.createStatement();
+        String catSearch = "Select * FROM course WHERE course_courseID = '" + id+"'";
+        
+        rs=st.executeQuery(catSearch);
+        while(rs.next()){
+            SearchPage.cbxCourses.addItem(rs.getString(2));
+        }
+    }catch(SQLException e){
+      System.out.println("Nope: "+e.getMessage());
+        }
+        return rs.toString();  
+    }
     public String jobSearch(int id){
     try{
         
