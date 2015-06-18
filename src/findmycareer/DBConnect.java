@@ -174,8 +174,6 @@ public class DBConnect {
             ProfileEdit.txtFname.setText(rs.getString(6));
             ProfileEdit.txtLname.setText(rs.getString(7));
             ProfileEdit.txtDoB.setValue(rs.getDate(9));
-            
-
             }
         }catch(Exception e){
             System.out.println("ERROR: "+e.getMessage());
@@ -196,7 +194,7 @@ public class DBConnect {
     public void showUsers(){
         try{
            st = con.createStatement();
-           String sql = "SELECT UserID, email, accountLevel, fName, lName FROM user";
+           String sql = "SELECT UserID, email, accountLevel, fName, lName, accountExpire FROM user";
            rs = st.executeQuery(sql);
            adminPage.tblUsers.setModel(DbUtils.resultSetToTableModel(rs));
         }catch(Exception e){
