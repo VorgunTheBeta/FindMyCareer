@@ -19,6 +19,9 @@ public class FindMyCareer {
     public static SignUpPage sUP;
     public static Login lgn;
     public static MainPage mPG;
+    public static ProfileEdit pfEdt;
+    public static adminPage admnPg;
+    public static AdminProfileEdit admnPfEdt;
     //</editor-fold>
     /**
      * @param args the command line arguments
@@ -56,12 +59,20 @@ public class FindMyCareer {
             sUS.dispose();
         }            
     }
-    public static void mainPageShow(){
+    public static void mainPageShow(String st){
         if(mPG == null){
             mPG = new MainPage();
         }
         mPG.setVisible(true);
-        lgn.dispose();
+        if(st.equals("login")){
+        lgn.dispose();    
+        }
+        if(st.equals("edit")){
+            pfEdt.dispose();
+        }
+        if(st.equals("admin")){
+            admnPg.dispose();
+        }
     }
     public static void bootPageShow(String st){
         if(bP == null){
@@ -83,6 +94,27 @@ public class FindMyCareer {
         if(st.equals("Login")){
             lgn.getContentPane().removeAll();
         }
+    }
+    public static void ProfileEdit(){
+        if(pfEdt==null){
+            pfEdt = new ProfileEdit();
+        }
+        pfEdt.setVisible(true);
+        mPG.dispose();
+    }
+    public static void AdminPageShow(){
+        if(admnPg==null){
+            admnPg = new adminPage();
+        }
+        admnPg.setVisible(true);
+        lgn.dispose();
+    }
+    public static void AdminProfileEdit(){
+        if(admnPfEdt==null){
+            admnPfEdt = new AdminProfileEdit();
+        }
+        admnPfEdt.setVisible(true);
+        admnPg.dispose();
     }
     //</editor-fold>
     
