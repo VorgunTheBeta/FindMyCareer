@@ -14,7 +14,7 @@ package findmycareer;
  * @author 7107723813
  */
 public class MainPage extends javax.swing.JFrame {
-    public DBConnect db = new DBConnect();
+    
     /**
      * Creates new form MainPage
      */
@@ -23,6 +23,7 @@ public class MainPage extends javax.swing.JFrame {
         cbxIndustry.removeAllItems();
         cbxCategory.removeAllItems();
         cbxPathway.removeAllItems();
+        DBConnect db = new DBConnect();
         db.industrySearch();
         getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
@@ -210,6 +211,7 @@ public class MainPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         cbxCategory.removeAllItems();
         int id = cbxIndustry.getSelectedIndex();
+        DBConnect db = new DBConnect();
         db.categorySearch(id);
         
     }//GEN-LAST:event_cbxIndustryActionPerformed
@@ -219,7 +221,7 @@ public class MainPage extends javax.swing.JFrame {
         cbxPathway.removeAllItems();
         int catid = cbxCategory.getSelectedIndex();
         int indusid = cbxIndustry.getSelectedIndex();
-        
+        DBConnect db = new DBConnect();
         db.pathwaySearch(catid,indusid);
     }//GEN-LAST:event_cbxCategoryActionPerformed
 
@@ -230,6 +232,7 @@ public class MainPage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        DBConnect db = new DBConnect();
         db.logout(Login.email, Login.txtPassword.getText());
         FindMyCareer.logInShow("MainPage");
     }//GEN-LAST:event_jButton1ActionPerformed

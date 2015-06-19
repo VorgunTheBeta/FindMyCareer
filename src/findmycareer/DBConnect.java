@@ -112,12 +112,13 @@ public class DBConnect {
     public String industrySearch(){
         try{
             st = con.createStatement();
-            String sql = "SELECT * FROM industry";
+            String sql = "SELECT * FROM `industry`";
             rs=st.executeQuery(sql); 
             while(rs.next()){
                 MainPage.cbxIndustry.addItem(rs.getString(2));
+                System.out.println(rs.getString(2));
             }
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println("Nope: "+e.getMessage());
         }
         return rs.toString();
@@ -130,8 +131,6 @@ public class DBConnect {
             id = id+1;
             st=con.createStatement();
             String catSearch = "SELECT * FROM category WHERE Industry_industryID = '"+id+"'";
-            
-            
             rs=st.executeQuery(catSearch);
             while(rs.next()){
                 MainPage.cbxCategory.addItem(rs.getString(2));
@@ -148,6 +147,27 @@ public class DBConnect {
             System.out.println(id);
             id = id+1;
             id2 = id2 + 1;
+            if(id2 == 1&&id == 2){
+            id = id + 1;
+            }
+            if(id2 == 2){
+                id = id+5;
+            }
+            if(id2 == 2&&id == 2){
+                id = id+5;
+            }
+            if(id2 == 3){
+                id = id+10;
+            }
+            if(id2 == 3&&id == 2){
+                id=id+10;
+            }
+            if(id2 == 4){
+                id=id+15;
+            }
+            if(id2==4&&id==2){
+                id=id+15;
+            }
             st=con.createStatement();
             String catSearch = "SELECT * FROM pathway WHERE Category_categoryID = '"+id+"' AND Industry_industryID = '"+id2+"'";
             
@@ -242,5 +262,41 @@ public class DBConnect {
         }catch(Exception e){
             System.out.println("You done goofed "+e.getMessage());
         }
+    }
+    public String jobSearch(int id) {
+        try {
+
+            System.out.println(id);
+            id = id + 1;
+            st = con.createStatement();
+            String jobSearch = "SELECT * FROM job WHERE course_courseID = " + id ;
+
+            rs = st.executeQuery(jobSearch);
+            while (rs.next()) {
+                SearchPage.cbxJobs.addItem(rs.getString(2));
+                
+            }
+        } catch (SQLException e) {
+            System.out.println("Error jobSearch: " + e.getMessage());
+        }
+        return rs.toString();
+    }
+    public String courseSearch(int id) {
+        try {
+
+            System.out.println(id);
+            id = id + 1;
+            st = con.createStatement();
+            String courseSearch = "SELECT * FROM course WHERE pathway_pathwayID = " + id ;
+
+            rs = st.executeQuery(courseSearch);
+            while (rs.next()) {
+                SearchPage.cbxCourses.addItem(rs.getString(2));
+                
+            }
+        } catch (SQLException e) {
+            System.out.println("Error courseSearch: " + e.getMessage());
+        }
+        return rs.toString();
     }
 }
