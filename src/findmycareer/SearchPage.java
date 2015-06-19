@@ -18,11 +18,10 @@ public class SearchPage extends javax.swing.JFrame {
     public SearchPage() {
         initComponents();
         DBConnect db = new DBConnect();
-        db.courseSearch(WIDTH);
+        
         setLocationRelativeTo(null);
-        cbxCourses.removeAllItems();
-        cbxJobs.removeAllItems();
-        cbxSearch.removeAllItems();
+        db.courseSearch(MainPage.catid, MainPage.indid);
+        db.jobSearch(MainPage.pathwayid, MainPage.catid, MainPage.indid);
     }
 
     /**
@@ -36,12 +35,12 @@ public class SearchPage extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
-        cbxCourses = new javax.swing.JComboBox();
-        cbxJobs = new javax.swing.JComboBox();
-        cbxSearch = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
         btnBack2 = new javax.swing.JButton();
         btnSearch2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblSkilled = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblJob = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
@@ -57,50 +56,6 @@ public class SearchPage extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         getContentPane().add(jLabel1, gridBagConstraints);
 
-        cbxCourses.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbxCourses.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxCoursesActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 2;
-        gridBagConstraints.ipady = 1;
-        getContentPane().add(cbxCourses, gridBagConstraints);
-
-        cbxJobs.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbxJobs.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxJobsActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(cbxJobs, gridBagConstraints);
-
-        cbxSearch.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbxSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxSearchActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(cbxSearch, gridBagConstraints);
-
-        jLabel2.setText("Select Your Career path");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        getContentPane().add(jLabel2, gridBagConstraints);
-
         btnBack2.setText("Back");
         btnBack2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,43 +63,69 @@ public class SearchPage extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 12;
         getContentPane().add(btnBack2, gridBagConstraints);
 
         btnSearch2.setText("Search");
+        btnSearch2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearch2ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 12;
         getContentPane().add(btnSearch2, gridBagConstraints);
 
+        tblSkilled.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblSkilled);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        getContentPane().add(jScrollPane1, gridBagConstraints);
+
+        tblJob.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblJob);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        getContentPane().add(jScrollPane2, gridBagConstraints);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbxCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCoursesActionPerformed
-        // TODO add your handling code here:
-        cbxJobs.removeAllItems();
-        int id = cbxCourses.getSelectedIndex();
-        DBConnect db = new DBConnect();
-        db.jobSearch(id);
-    }//GEN-LAST:event_cbxCoursesActionPerformed
-
-    private void cbxJobsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxJobsActionPerformed
-        // TODO add your handling code here:
-        cbxSearch.removeAllItems();
-        int courseid = cbxSearch.getSelectedIndex();
-        DBConnect db = new DBConnect();
-        db.categorySearch(courseid);
-    }//GEN-LAST:event_cbxJobsActionPerformed
-
-    private void cbxSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxSearchActionPerformed
-
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
         // TODO add your handling code here:
-        FindMyCareer.mainPageShow("mainPage");
+        FindMyCareer.mainPageShow("search");
     }//GEN-LAST:event_btnBack2ActionPerformed
+
+    private void btnSearch2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch2ActionPerformed
+        // TODO add your handling code here:
+        FindMyCareer.empPageShow();
+    }//GEN-LAST:event_btnSearch2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,10 +165,10 @@ public class SearchPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack2;
     private javax.swing.JButton btnSearch2;
-    public static javax.swing.JComboBox cbxCourses;
-    public static javax.swing.JComboBox cbxJobs;
-    public static javax.swing.JComboBox cbxSearch;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    public static javax.swing.JTable tblJob;
+    public static javax.swing.JTable tblSkilled;
     // End of variables declaration//GEN-END:variables
 }
