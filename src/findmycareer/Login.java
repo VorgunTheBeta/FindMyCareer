@@ -11,7 +11,8 @@ package findmycareer;
  * @author 7107723813
  */
 public class Login extends javax.swing.JFrame {
-
+    public String password;
+    public static String email;
     /**
      * Creates new form Login
      */
@@ -124,11 +125,16 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        String password = txtPassword.getText();
+        email = txtEmail.getText();
+        password = txtPassword.getText();
         DBConnect db = new DBConnect();
-        if(db.login(txtEmail.getText(),password)==true){
+        if(db.login(email,password)==true&&DBConnect.active){
             System.out.println("Congratulations, it didnt break");
-            FindMyCareer.mainPageShow();
+            if(DBConnect.admin){
+            FindMyCareer.AdminPageShow("login");
+            }else{
+            FindMyCareer.mainPageShow("login");
+            }
         }
         
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -183,6 +189,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblSignUpPage;
     private javax.swing.JTextField txtEmail;
-    private javax.swing.JPasswordField txtPassword;
+    public static javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
