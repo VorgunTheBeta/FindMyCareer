@@ -6,6 +6,7 @@
 
 package findmycareer;
 
+
 /**
  *
  * @author 5100006815
@@ -17,6 +18,9 @@ public class bootPage extends javax.swing.JFrame {
      */
     public bootPage() {
         initComponents();
+         //setBackground(new java.awt.Color(255, 163, 0));
+        getContentPane().setBackground(new java.awt.Color(131, 111, 255));
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -37,9 +41,12 @@ public class bootPage extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("FindMyCareer");
+        setBackground(new java.awt.Color(255, 193, 0));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(230, 230, 230));
         jLabel1.setText("FindMyCareer");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
@@ -49,7 +56,6 @@ public class bootPage extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
         jLabel2.setText("Welcome to the FindMyCareer App");
         jLabel2.setToolTipText("");
-        jLabel2.setPreferredSize(new java.awt.Dimension(341, 20));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -69,6 +75,7 @@ public class bootPage extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(btnSignUp, gridBagConstraints);
 
+        btnLogIn.setBackground(new java.awt.Color(204, 51, 255));
         btnLogIn.setText("Log in");
         btnLogIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +87,8 @@ public class bootPage extends javax.swing.JFrame {
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(btnLogIn, gridBagConstraints);
+
+        jPanel1.setBackground(new java.awt.Color(131, 111, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,6 +106,7 @@ public class bootPage extends javax.swing.JFrame {
         gridBagConstraints.gridy = 2;
         getContentPane().add(jPanel1, gridBagConstraints);
 
+        jPanel2.setBackground(new java.awt.Color(131, 111, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(20, 20));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -133,27 +143,7 @@ public class bootPage extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(bootPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(bootPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(bootPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(bootPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+       
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

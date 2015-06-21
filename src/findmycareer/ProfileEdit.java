@@ -21,6 +21,7 @@ public class ProfileEdit extends javax.swing.JFrame {
     public ProfileEdit() {
         initComponents();
         db.profileItems(Login.email);
+        this.setLocationRelativeTo(null);
         getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
 
@@ -179,6 +180,11 @@ public class ProfileEdit extends javax.swing.JFrame {
         getContentPane().add(btnCancel, gridBagConstraints);
 
         btnRemoveAccount.setText("Delete Account");
+        btnRemoveAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveAccountActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 10;
         gridBagConstraints.gridy = 6;
@@ -217,6 +223,12 @@ public class ProfileEdit extends javax.swing.JFrame {
         FindMyCareer.mainPageShow("edit");
         }
     }//GEN-LAST:event_btnMakeChangeActionPerformed
+
+    private void btnRemoveAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveAccountActionPerformed
+        // TODO add your handling code here:
+        db.deleteAccount(txtUserID.getText());
+        FindMyCareer.logInShow("Profile Edit");
+    }//GEN-LAST:event_btnRemoveAccountActionPerformed
 
     /**
      * @param args the command line arguments
