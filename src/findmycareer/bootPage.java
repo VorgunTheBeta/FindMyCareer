@@ -20,6 +20,7 @@ public class bootPage extends javax.swing.JFrame {
         initComponents();
          //setBackground(new java.awt.Color(255, 163, 0));
         getContentPane().setBackground(new java.awt.Color(131, 111, 255));
+        this.setLocationRelativeTo(null);
     }
 
     /**
