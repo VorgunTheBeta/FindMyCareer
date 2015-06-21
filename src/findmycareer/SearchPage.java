@@ -22,6 +22,7 @@ public class SearchPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         db.courseSearch(MainPage.catid, MainPage.indid);
         db.jobSearch(MainPage.pathwayid, MainPage.catid, MainPage.indid);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -67,7 +68,7 @@ public class SearchPage extends javax.swing.JFrame {
         gridBagConstraints.gridy = 12;
         getContentPane().add(btnBack2, gridBagConstraints);
 
-        btnSearch2.setText("Search");
+        btnSearch2.setText("Next");
         btnSearch2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearch2ActionPerformed(evt);

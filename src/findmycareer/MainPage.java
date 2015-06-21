@@ -27,7 +27,7 @@ public class MainPage extends javax.swing.JFrame {
         cbxPathway.removeAllItems();
         DBConnect db = new DBConnect();
         db.industrySearch();
-        
+        this.setLocationRelativeTo(null);
         getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
 

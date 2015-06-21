@@ -185,7 +185,8 @@ public class DBConnect {
         }
         return rs.toString();
     }
-    public void profileItems(String user){
+    //<editor-fold defaultstate="collapsed" desc="Profile Queries Kyle Swanenberg">
+     public void profileItems(String user){
         try{
             st = con.createStatement();
             String sql = "SELECT * FROM users WHERE email = '"+user+"'";
@@ -267,6 +268,8 @@ public class DBConnect {
             System.out.println("You done goofed "+e.getMessage());
         }
     }
+//</editor-fold>
+   
     public String jobSearch(int id, int id2, int id3) {
         try {
 

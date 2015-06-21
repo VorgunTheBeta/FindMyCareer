@@ -8,6 +8,7 @@ package findmycareer;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Date;
 
 
 
@@ -188,6 +189,7 @@ public class AdminProfileEdit extends javax.swing.JFrame {
         getContentPane().add(txtEmail, gridBagConstraints);
 
         txtDoB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+        txtDoB.setValue(new Date());
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 10;

@@ -21,6 +21,7 @@ public class SignUpPage extends javax.swing.JFrame {
     public SignUpPage() {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(131,111,255));
+        this.setLocationRelativeTo(null);
     }
     
 

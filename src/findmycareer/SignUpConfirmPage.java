@@ -28,6 +28,7 @@ public class SignUpConfirmPage extends javax.swing.JFrame {
         txtPasswordTwo.setText(SignUpPage.txtPasswordTwo.getText());
         txtDoB.setText(SignUpPage.txtDoB.getText());
         txtPhoneNumber.setText(SignUpPage.txtPhoneNumber.getText());
+        this.setLocationRelativeTo(null);
     }
     
 

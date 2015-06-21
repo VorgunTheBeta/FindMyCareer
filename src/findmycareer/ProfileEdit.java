@@ -21,6 +21,7 @@ public class ProfileEdit extends javax.swing.JFrame {
     public ProfileEdit() {
         initComponents();
         db.profileItems(Login.email);
+        this.setLocationRelativeTo(null);
         getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
 

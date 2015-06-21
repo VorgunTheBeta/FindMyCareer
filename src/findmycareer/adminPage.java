@@ -17,6 +17,7 @@ public class adminPage extends javax.swing.JFrame {
     public adminPage() {
         initComponents();
         db.showUsers();
+        this.setLocationRelativeTo(null);
     }
 
     /**

@@ -19,6 +19,7 @@ public class Emp extends javax.swing.JFrame {
         DBConnect db = new DBConnect();
         db.empSkills(MainPage.catid, MainPage.indid);
         db.empSkillsReq(MainPage.catid, MainPage.indid);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -37,6 +38,8 @@ public class Emp extends javax.swing.JFrame {
         tblEmpSkills = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblEmpSkillsReq = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -53,7 +56,8 @@ public class Emp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel1.setText("FindMyCareer");
 
         tblEmpSkills.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,6 +85,10 @@ public class Emp extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tblEmpSkillsReq);
 
+        jLabel2.setText("Employability Skills");
+
+        jLabel3.setText("Employability Skills Requirements");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -94,7 +102,13 @@ public class Emp extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(393, 393, 393)
+                        .addGap(305, 305, 305)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(349, 349, 349)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(322, 322, 322)
                         .addComponent(jLabel1)))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
@@ -103,11 +117,15 @@ public class Emp extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(151, 151, 151)
+                .addGap(76, 76, 76)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,6 +168,8 @@ public class Emp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
