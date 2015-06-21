@@ -14,7 +14,9 @@ package findmycareer;
  * @author 7107723813
  */
 public class MainPage extends javax.swing.JFrame {
-    public DBConnect db = new DBConnect();
+    public static int pathwayid;
+    public static int catid;
+    public static int indid;
     /**
      * Creates new form MainPage
      */
@@ -23,7 +25,9 @@ public class MainPage extends javax.swing.JFrame {
         cbxIndustry.removeAllItems();
         cbxCategory.removeAllItems();
         cbxPathway.removeAllItems();
+        DBConnect db = new DBConnect();
         db.industrySearch();
+        this.setLocationRelativeTo(null);
         getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
 
@@ -91,6 +95,11 @@ public class MainPage extends javax.swing.JFrame {
 
         btnSearch.setBackground(new java.awt.Color(153, 102, 255));
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 12;
         gridBagConstraints.gridy = 12;
@@ -210,6 +219,7 @@ public class MainPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         cbxCategory.removeAllItems();
         int id = cbxIndustry.getSelectedIndex();
+        DBConnect db = new DBConnect();
         db.categorySearch(id);
         
     }//GEN-LAST:event_cbxIndustryActionPerformed
@@ -217,10 +227,10 @@ public class MainPage extends javax.swing.JFrame {
     private void cbxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCategoryActionPerformed
         // TODO add your handling code here:
         cbxPathway.removeAllItems();
-        int catid = cbxCategory.getSelectedIndex();
-        int indusid = cbxIndustry.getSelectedIndex();
-        
-        db.pathwaySearch(catid,indusid);
+         catid = cbxCategory.getSelectedIndex();
+         indid = cbxIndustry.getSelectedIndex();
+        DBConnect db = new DBConnect();
+        db.pathwaySearch(catid,indid);
     }//GEN-LAST:event_cbxCategoryActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -230,9 +240,16 @@ public class MainPage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        DBConnect db = new DBConnect();
         db.logout(Login.email, Login.txtPassword.getText());
         FindMyCareer.logInShow("MainPage");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        pathwayid = cbxPathway.getSelectedIndex();
+        FindMyCareer.searchPageShow("searchPage");
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
      * @param args the command line arguments
