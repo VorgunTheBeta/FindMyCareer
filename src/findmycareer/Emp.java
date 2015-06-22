@@ -146,7 +146,7 @@ public class Emp extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        FindMyCareer.mainPageShow("Main Page");
+        FindMyCareer.mainPageShow("emp");
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**

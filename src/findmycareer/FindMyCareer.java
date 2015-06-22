@@ -99,6 +99,9 @@ public class FindMyCareer {
         if(st.equals("MainPage")){
             pfEdt.dispose();
         }
+        if(st.equals("emp")){
+            emp.dispose();
+        }
         
     }
     public static void bootPageShow(String st){
