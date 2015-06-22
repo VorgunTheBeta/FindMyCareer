@@ -7,7 +7,8 @@ package findmycareer;
 
 /**
  *
- * @author marcel
+ * @author kyle
+ * @author Ilya
  */
 public class Emp extends javax.swing.JFrame {
 

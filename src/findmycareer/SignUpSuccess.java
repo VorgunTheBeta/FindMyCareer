@@ -6,7 +6,8 @@
 package findmycareer;
 /**
  *
- * @author 1106024914
+ * @author Kyle
+ * @author Ilya
  */
 public class SignUpSuccess extends javax.swing.JFrame {
 

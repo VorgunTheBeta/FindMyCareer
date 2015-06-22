@@ -9,7 +9,8 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 /**
  *
- * @author 5100006815
+ * @author Josh
+ * @author Tadd
  */
 public class SignUpPage extends javax.swing.JFrame {
     public boolean isSame = false;

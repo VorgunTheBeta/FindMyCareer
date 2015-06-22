@@ -10,7 +10,8 @@ package findmycareer;
 
 /**
  *
- * @author 5100006815
+ * @author Ilya
+ * @author Tadd
  */
 public class ProfileEdit extends javax.swing.JFrame {
     public DBConnect db = new DBConnect();

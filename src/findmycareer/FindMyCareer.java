@@ -10,7 +10,8 @@ package findmycareer;
 
 /**
  *
- * @author 5100006815
+ * @author kyle
+ * 
  */
 public class FindMyCareer {
     //<editor-fold defaultstate="collapsed" desc=" GUI Entities DO NOT RENAME!!! ">

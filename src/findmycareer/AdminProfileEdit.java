@@ -14,7 +14,8 @@ import java.util.Date;
 
 /**
  *
- * @author 5100006815
+ * @author Kyle
+ * @author Tadd
  */
 public class AdminProfileEdit extends javax.swing.JFrame {
     public DBConnect db = new DBConnect();

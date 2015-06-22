@@ -11,7 +11,9 @@ package findmycareer;
 
 /**
  *
- * @author 7107723813
+ * @author Kyle
+ * @author Josh
+ * @author Trai
  */
 public class MainPage extends javax.swing.JFrame {
     public static int pathwayid;

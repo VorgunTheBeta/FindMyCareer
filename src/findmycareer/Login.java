@@ -8,7 +8,9 @@ package findmycareer;
 
 /**
  *
- * @author 7107723813
+ * @author Trai
+ * @author Ilya
+ * @author Kyle
  */
 public class Login extends javax.swing.JFrame {
     public String password;

@@ -9,7 +9,8 @@ package findmycareer;
 
 /**
  *
- * @author 5100006815
+ * @author Ilya
+ * @author Tadd
  */
 public class bootPage extends javax.swing.JFrame {
 

@@ -19,7 +19,9 @@ import java.text.SimpleDateFormat;
 
 /**
  *
- * @author 5100006815
+ * @author Kyle
+ * @author Trai
+ * @author Tadd
  */
 public class DBConnect {
     private Connection con;

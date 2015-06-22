@@ -7,7 +7,8 @@ package findmycareer;
 import java.util.Date;
 /**
  *
- * @author marcel
+ * @author Kyle
+ * @author Tadd
  */
 public class adminPage extends javax.swing.JFrame {
     DBConnect db = new DBConnect();
