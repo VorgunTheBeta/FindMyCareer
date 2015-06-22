@@ -20,6 +20,7 @@ public class Emp extends javax.swing.JFrame {
         db.empSkills(MainPage.catid, MainPage.indid);
         db.empSkillsReq(MainPage.catid, MainPage.indid);
         this.setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
 
     /**
@@ -57,8 +58,11 @@ public class Emp extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(230, 230, 230));
         jLabel1.setText("FindMyCareer");
 
+        tblEmpSkills.setBackground(new java.awt.Color(51, 204, 255));
+        tblEmpSkills.setForeground(new java.awt.Color(255, 255, 255));
         tblEmpSkills.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -70,8 +74,10 @@ public class Emp extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblEmpSkills.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(tblEmpSkills);
 
+        tblEmpSkillsReq.setBackground(new java.awt.Color(51, 204, 255));
         tblEmpSkillsReq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

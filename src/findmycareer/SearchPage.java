@@ -23,6 +23,7 @@ public class SearchPage extends javax.swing.JFrame {
         db.courseSearch(MainPage.catid, MainPage.indid);
         db.jobSearch(MainPage.pathwayid, MainPage.catid, MainPage.indid);
         this.setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
 
     /**
@@ -50,6 +51,7 @@ public class SearchPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(230, 230, 230));
         jLabel1.setText("FindMyCareer");
         jLabel1.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -79,6 +81,9 @@ public class SearchPage extends javax.swing.JFrame {
         gridBagConstraints.gridy = 12;
         getContentPane().add(btnSearch2, gridBagConstraints);
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
+
         tblSkilled.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -96,6 +101,8 @@ public class SearchPage extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         getContentPane().add(jScrollPane1, gridBagConstraints);
+
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
 
         tblJob.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
