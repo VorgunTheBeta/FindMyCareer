@@ -22,6 +22,7 @@ public class SignUpPage extends javax.swing.JFrame {
         initComponents();
         getContentPane().setBackground(new java.awt.Color(131,111,255));
         this.setLocationRelativeTo(null);
+        this.txtPassComp.setText("Please press the Enter/Return key after \n inputting the second password.");
     }
     
 
@@ -245,6 +246,7 @@ public class SignUpPage extends javax.swing.JFrame {
         FindMyCareer.bootPageShow("SignUpPage");
         FindMyCareer.ResetPageComponents("SignUpPage");
         initComponents();
+        this.txtPassComp.setText("Please press the Enter/Return key after \n inputting the second password.");
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void txtPasswordTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordTwoActionPerformed

@@ -95,6 +95,9 @@ public class FindMyCareer {
         if(st.equals("search")){
             sPG.dispose();
         }
+        if(st.equals("emp")){
+            emp.dispose();
+        }
     }
     public static void bootPageShow(String st){
         if(bP == null){
@@ -121,6 +124,9 @@ public class FindMyCareer {
         }
         if(st.equals("AdminProfileEdit")){
             admnPfEdt.getContentPane().removeAll();
+        }
+        if(st.equals("Profile Edit")){
+            pfEdt.getContentPane().removeAll();
         }
     }
     public static void ProfileEdit(){

@@ -13,6 +13,7 @@ package findmycareer;
 public class Login extends javax.swing.JFrame {
     public String password;
     public static String email;
+    public static int userID;
     /**
      * Creates new form Login
      */

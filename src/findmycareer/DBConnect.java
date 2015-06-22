@@ -27,6 +27,7 @@ public class DBConnect {
     private ResultSet rs;
     public static boolean admin = false;
     public static boolean active = true;
+    public static int userID = 0;
     DBConnect(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -47,6 +48,7 @@ public class DBConnect {
             rs = st.executeQuery(sql);
             while(rs.next()){
                 check = true;
+                userID = rs.getInt(1);
                 accountLvl = rs.getInt(4);
                 active = rs.getBoolean(10);
                 if(accountLvl == 1){
@@ -362,4 +364,23 @@ public class DBConnect {
             System.out.println("Errror: "+e.getMessage());
         }
     }
+    public void addHistory(String user, String ind, String cat, String path){
+        try {
+            String insertStatement = "INSERT INTO history(user_id, email, industry, category, careerPathway, Date) "
+                   +"VALUES (?,?,?,?,?,?)";
+           PreparedStatement preState = con.prepareStatement(insertStatement);
+            DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+            Date date = new Date();
+           preState.setInt(1, userID);
+           preState.setString(2,user);
+           preState.setString(3,ind);
+           preState.setString(4,cat);
+           preState.setString(5,path);
+           preState.setString(6,df.format(date));
+           preState.execute();
+           System.out.println("History added!");
+        } catch (Exception e) {
+            System.out.println("Error: "+e);
+        }
+    } 
 }

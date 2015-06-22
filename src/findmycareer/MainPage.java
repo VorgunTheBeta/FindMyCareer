@@ -248,6 +248,8 @@ public class MainPage extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         pathwayid = cbxPathway.getSelectedIndex();
+        DBConnect db = new DBConnect();
+        db.addHistory(Login.email, cbxIndustry.getSelectedItem().toString(), cbxCategory.getSelectedItem().toString(), cbxPathway.getSelectedItem().toString());
         FindMyCareer.searchPageShow("searchPage");
     }//GEN-LAST:event_btnSearchActionPerformed
 
