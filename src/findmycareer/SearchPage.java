@@ -23,6 +23,7 @@ public class SearchPage extends javax.swing.JFrame {
         db.courseSearch(MainPage.catid, MainPage.indid);
         db.jobSearch(MainPage.pathwayid, MainPage.catid, MainPage.indid);
         this.setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
 
     /**
@@ -50,6 +51,7 @@ public class SearchPage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(230, 230, 230));
         jLabel1.setText("FindMyCareer");
         jLabel1.setToolTipText("");
         gridBagConstraints = new java.awt.GridBagConstraints();

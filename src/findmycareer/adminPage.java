@@ -18,6 +18,7 @@ public class adminPage extends javax.swing.JFrame {
         initComponents();
         db.showUsers();
         this.setLocationRelativeTo(null);
+        getContentPane().setBackground(new java.awt.Color(131,111,255));
     }
 
     /**
